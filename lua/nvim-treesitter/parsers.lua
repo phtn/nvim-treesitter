@@ -91,6 +91,16 @@ return {
     maintainers = { '@amaanq' },
     tier = 2,
   },
+  beast = {
+    install_info = {
+      url = "https://github.com/phtn/beast-ext",
+      revision = "28361a8365f89b9e6fb748799d5fcf41810ef675",
+      files = { "src/parser.c", "src/scanner.c" },
+    },
+    filetype = "beast",
+    maintainers = { "@phtn" },
+    tier = 3,
+  },
   beancount = {
     install_info = {
       revision = 'c8a9780610dbe8ade4888045b1f2caa7a0a9d8aa',
