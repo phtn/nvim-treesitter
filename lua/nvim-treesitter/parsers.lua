@@ -93,13 +93,11 @@ return {
   },
   beast = {
     install_info = {
-      url = "https://github.com/phtn/beast-ext",
-      revision = "28361a8365f89b9e6fb748799d5fcf41810ef675",
-      files = { "src/parser.c", "src/scanner.c" },
+      revision = '1d204c7df940b60ba1964e894fadab35ee0a515f',
+      url = 'https://github.com/phtn/beast-ext',
     },
-    filetype = "beast",
-    maintainers = { "@phtn" },
-    tier = 3,
+    maintainers = { '@phtn' },
+    tier = 2,
   },
   beancount = {
     install_info = {

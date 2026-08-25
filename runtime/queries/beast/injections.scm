@@ -1,73 +1,95 @@
 ; Beast embeds TypeScript source and expressions and hands final validation to
-; Octane. Use the TypeScript grammar because Beast source slices are native
-; TypeScript rather than TSX-shaped intermediate code.
-
-; Complete import declarations are already valid TypeScript statements.
-((import_declaration) @injection.content
+; Octane. Beast source slices are native TypeScript rather than TSX-shaped
+; intermediate code.
+; Continuation prefixes are omitted while all payload fragments are parsed as
+; one logical TypeScript document.
+(import_declaration
+  "import" @injection.content
+  source: (continued_line_expression
+    (line_expression)+ @injection.content)
   (#set! injection.language "typescript")
-  (#set! injection.include-children))
+  (#set! injection.combined))
 
 ; Inline and block module/setup source.
-(module_declaration
-  source: (source_code) @injection.content
-  (#set! injection.language "typescript"))
-
-(module_declaration
-  source: (source_block) @injection.content
+((continued_source_code
+  (source_code)+ @injection.content)
   (#set! injection.language "typescript")
-  (#set! injection.include-children))
-
-(setup_declaration
-  source: (source_code) @injection.content
-  (#set! injection.language "typescript"))
-
-(setup_declaration
-  source: (source_block) @injection.content
-  (#set! injection.language "typescript")
-  (#set! injection.include-children))
+  (#set! injection.combined))
 
 ; A props parameter is preserved as TypeScript source.
 (props_declaration
-  parameter: (line_expression) @injection.content
-  (#set! injection.language "typescript"))
+  parameter: (continued_line_expression
+    (line_expression)+ @injection.content)
+  (#set! injection.language "typescript")
+  (#set! injection.combined))
 
 ; Expressions inside text and attributes.
 (interpolation
-  body: (expression_body) @injection.content
-  (#set! injection.language "typescript"))
+  body: (expression_body
+    (expression_fragment)+ @injection.content)
+  (#set! injection.language "typescript")
+  (#set! injection.combined))
 
 (attribute
   value: (expression
-    body: (expression_body) @injection.content)
-  (#set! injection.language "typescript"))
+    body: (expression_body
+      (expression_fragment)+ @injection.content))
+  (#set! injection.language "typescript")
+  (#set! injection.combined))
+
+(spread_attribute
+  argument: (expression_body
+    (expression_fragment)+ @injection.content)
+  (#set! injection.language "typescript")
+  (#set! injection.combined))
+
+; Raw style blocks are native CSS with their source indentation preserved.
+((continued_style_source
+  (style_source)+ @injection.content)
+  (#set! injection.language "css")
+  (#set! injection.combined))
 
 ; Conditions and loop expressions.
 (if_clause
-  condition: (line_expression) @injection.content
-  (#set! injection.language "typescript"))
+  condition: (continued_line_expression
+    (line_expression)+ @injection.content)
+  (#set! injection.language "typescript")
+  (#set! injection.combined))
 
 (elseif_clause
-  condition: (line_expression) @injection.content
-  (#set! injection.language "typescript"))
+  condition: (continued_line_expression
+    (line_expression)+ @injection.content)
+  (#set! injection.language "typescript")
+  (#set! injection.combined))
 
 (each_statement
-  iterable: (line_expression) @injection.content
-  (#set! injection.language "typescript"))
+  iterable: (continued_each_iterable
+    (line_expression)+ @injection.content)
+  (#set! injection.language "typescript")
+  (#set! injection.combined))
 
 (each_statement
-  key: (line_expression) @injection.content
-  (#set! injection.language "typescript"))
+  key: (continued_line_expression
+    (line_expression)+ @injection.content)
+  (#set! injection.language "typescript")
+  (#set! injection.combined))
 
 ; Switch discriminants and case expressions.
 (switch_statement
-  discriminant: (line_expression) @injection.content
-  (#set! injection.language "typescript"))
+  discriminant: (continued_line_expression
+    (line_expression)+ @injection.content)
+  (#set! injection.language "typescript")
+  (#set! injection.combined))
 
 (case_clause
-  condition: (line_expression) @injection.content
-  (#set! injection.language "typescript"))
+  condition: (continued_line_expression
+    (line_expression)+ @injection.content)
+  (#set! injection.language "typescript")
+  (#set! injection.combined))
 
 ; Catch bindings can be written directly or inside parentheses.
 (catch_clause
-  bindings: (line_expression) @injection.content
-  (#set! injection.language "typescript"))
+  bindings: (continued_line_expression
+    (line_expression)+ @injection.content)
+  (#set! injection.language "typescript")
+  (#set! injection.combined))

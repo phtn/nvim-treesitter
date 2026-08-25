@@ -1,5 +1,4 @@
 ; Beast indents — indentation opens template, component, and source blocks.
-
 [
   (element)
   (component_declaration)
@@ -16,4 +15,6 @@
   (try_clause)
   (pending_clause)
   (catch_clause)
-] @indent
+  (fragment_statement)
+  (style_statement)
+] @indent.begin

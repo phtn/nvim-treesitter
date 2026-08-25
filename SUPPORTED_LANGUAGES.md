@@ -23,6 +23,7 @@ Language | Tier | Queries | Maintainer
 [bash](https://github.com/tree-sitter/tree-sitter-bash) | unstable | `HFIJL` | @TravonteD
 [bass](https://github.com/vito/tree-sitter-bass) | unstable | `HFIJL` | @amaanq
 [beancount](https://github.com/polarmutex/tree-sitter-beancount) | unstable | `HF J ` | @polarmutex
+[beast](https://github.com/phtn/beast-ext) | unstable | `HFIJ ` | @phtn
 [bibtex](https://github.com/latex-lsp/tree-sitter-bibtex) | unstable | `HFIJ ` | @theHamsta, @clason
 [bicep](https://github.com/tree-sitter-grammars/tree-sitter-bicep) | unstable | `HFIJL` | @amaanq
 [bitbake](https://github.com/tree-sitter-grammars/tree-sitter-bitbake) | unstable | `HFIJL` | @amaanq
