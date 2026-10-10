@@ -81,17 +81,17 @@ return {
     },
     tier = 2,
   },
-  beast = {
-    install_info = {
-      revision = '1d204c7df940b60ba1964e894fadab35ee0a515f',
-      url = 'https://github.com/phtn/beast-ext',
-    },
-    tier = 2,
-  },
   beancount = {
     install_info = {
       revision = 'c8a9780610dbe8ade4888045b1f2caa7a0a9d8aa',
       url = 'https://github.com/polarmutex/tree-sitter-beancount',
+    },
+    tier = 2,
+  },
+  beast = {
+    install_info = {
+      revision = '8c013addff10f292c40f20484f28b304ba1797f7',
+      url = 'https://github.com/phtn/beast-ext',
     },
     tier = 2,
   },
