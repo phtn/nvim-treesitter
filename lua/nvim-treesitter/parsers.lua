@@ -88,6 +88,13 @@ return {
     },
     tier = 2,
   },
+  beast = {
+    install_info = {
+      revision = '8c013addff10f292c40f20484f28b304ba1797f7',
+      url = 'https://github.com/phtn/beast-ext',
+    },
+    tier = 2,
+  },
   bibtex = {
     install_info = {
       revision = '8d04ed27b3bc7929f14b7df9236797dab9f3fa66',
